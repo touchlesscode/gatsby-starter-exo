@@ -1,19 +1,27 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.exo.new`
   },
-  plugins: [{
+  plugins: [
+  {
     resolve: 'gatsby-source-sanity',
     options: {
       "projectId": "ju3h49o8",
       "dataset": "production"
     }
-  }, "gatsby-plugin-postcss", "gatsby-plugin-image", "gatsby-plugin-react-helmet", {
+  }, 
+  "gatsby-plugin-postcss", 
+  "gatsby-plugin-image", 
+  "gatsby-plugin-react-helmet", 
+  {
     resolve: 'gatsby-plugin-manifest',
     options: {
       "icon": "src/images/icons/icon.png"
     }
-  }, "gatsby-plugin-sharp", "gatsby-transformer-sharp", {
+  }, 
+  "gatsby-plugin-sharp", 
+  "gatsby-transformer-sharp", 
+  {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "images",
@@ -26,19 +34,19 @@ module.exports = {
   },
   'gatsby-plugin-theme-ui',
   {
-    resolve: "gatsby-omni-font-loader",
+    resolve: `gatsby-plugin-rudderstack`,
     options: {
-      mode: "async",
-      enableListener: true,
-      interval: 400,
-      preconnect: ["https://fonts.gstatic.com"],
-      web: [{
-        /* Exact name of the font as defied in @font-face CSS rule */
-        name: "Work Sans",
-        /* URL to the font CSS file with @font-face definition */
-        file: "https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap",
-      },
-      ],
+      prodKey: RUDDERSTACK_PROD_KEY,
+      trackPage: true,
+      trackPageDelay: 50,
+      //devKey: `RUDDERSTACK_DEV_WRITE_KEY`,
+      //dataPlaneUrl: `https://override-rudderstack-endpoint`,
+      //controlPlaneUrl: `https://override-control-plane-url`,
+      delayLoad: false,
+      delayLoadTime: 1000,
+      manualLoad: false,
+      loadType: 'defer'
     }
-  }]
+  }
+  ]
 };
