@@ -33,7 +33,7 @@ module.exports = {
     resolve: `gatsby-theme-exo`,
   },
   'gatsby-plugin-theme-ui',
-  {
+  /*{
     resolve: `gatsby-plugin-rudderstack`,
     options: {
       prodKey: RUDDERSTACK_PROD_KEY,
@@ -47,6 +47,6 @@ module.exports = {
       manualLoad: false,
       loadType: 'defer'
     }
-  }
+  }*/
   ]
 };
