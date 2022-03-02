@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import Confetti from 'react-dom-confetti';
 
@@ -7,19 +7,27 @@ const IndexPage = () => {
 const [email, setEmail] = useState("");
 const [domain, setDomain] = useState("");
 const [submit, setSubmit] = useState(false);
+const [submitted, setSubmitted] = useState(false);
+const [confetti, setConfetti] = useState(false);
+
+if (typeof window !== `undefined`) {
+    if (localStorage.getItem('sent')) {
+        setSubmitted(true);
+    }  
+}
 
 const confettiConfig = {
-    angle: "180",
-    spread: 500,
-    startVelocity: 40,
-    elementCount: 75,
-    dragFriction: 0.12,
+    angle: "90",
+    spread: 800,
+    startVelocity: 20,
+    elementCount: 40,
+    dragFriction: 0.15,
     duration: "2000",
     stagger: 2,
     width: "8px",
     height: "8px",
-    perspective: "500px",
-    colors: ["#db8a30", "#d26e00", "#db8a30", "#7E212A", "#7E212A"]
+    perspective: "400px",
+    colors: ["#362066", "#a6026a", "#047bd3", "#b17acc", "#ffedbf"]
   };
 
   return (
@@ -31,70 +39,48 @@ const confettiConfig = {
         Make data-rich Gatsby sites, fast.
         </p>
 
-        <Confetti className="justify-center" active={submit} config={ confettiConfig } />
+        <Confetti className="ml-48 pl-48 mx-auto justify-center" active={confetti} config={ confettiConfig } />
       {!submit ? (
-        <> <p className="max-w-xl mt-12 mb-12 mx-auto text-xl text-gray-400">
-          Secure your spot in the EXO early beta and receive a free API to sync your data and first-class support to make EXO fit your needs.
+        <><p className="max-w-xl mt-12 mb-12 mx-auto text-xl text-gray-400">
+          Secure your spot in the EXO early beta and receive a free API to sync your data and first-class support to make EXO fit your needs. 
          </p>
         <form method="post" className="mt-8 justify-center sm:flex" onSubmit={() => setSubmit(true)}>
          <div className="mb-4 sm:mb-0 sm:mr-8">
-         <label htmlFor="email-address" className="sr-only">
-            Email address
-          </label>
-          <input
-            id="email-address"
-            name="email"
-            type="email"
-            autoComplete="email"
-            onKeyDown={event => setEmail(event.target.value)}
-            onClick={event => setEmail(event.target.value)}
-            onBlur={event => setEmail(event.target.value)}
-            onChange={event => setEmail(event.target.value)}
-            required
-            className="w-full px-5 py-3 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs border-gray-300 rounded-md"
-            placeholder="Enter your email"
-          />
-          </div>
-          <div className="mb-4 sm:mb-0 sm:mr-8">
-          <label htmlFor="email-address" className="sr-only">
-            Your existing website address
-          </label>
-          <input
-            id="domain"
-            name="domain"
-            type="text"
-            autoComplete="domain"
-            onKeyDown={event => setDomain(event.target.value)}
-            onClick={event => setDomain(event.target.value)}
-            onBlur={event => setDomain(event.target.value)}
-            onChange={event => setDomain(event.target.value)}
-            
-            required
-            className="w-full px-5 py-3 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-md border-gray-300 rounded-md"
-            placeholder="Current website URL"
-          />
-          </div>
-          <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-            <button
-              type="submit"
-              className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+           <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+            <a onMouseOver={() => setConfetti(true)} onMouseOut={() => setConfetti(false)} href="https://discordapp.com/users/Touchless#5582" target="new"
+              className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              Join the free beta
-            </button>
+              DM us on Discord
+            </a>
           </div>
+        </div>
+        <div className="mb-4 sm:mb-0 sm:mr-8">
+           <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+            <a onMouseOver={() => setConfetti(true)} onMouseOut={() => setConfetti(false)} href="https://join.slack.com/share/enQtMzE5NTY1NzM4ODQxNy0wYjM0ZWI2Y2Q4NmExYzcyODAyMjQyMjE4ZTQ5NzUzNGVlZDM5NzM4NjgyZjYxMWRjM2MwMmY1OTNlNzI2NjQ4" target="new"
+              className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-900 hover:border-solid focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Join us in our Slack
+            </a>
+          </div>
+        </div>
+        <div className="mb-4 sm:mb-0 sm:mr-8">
+           <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
+            <a onMouseOver={() => setConfetti(true)} onMouseOut={() => setConfetti(false)} href="https://www.koons.com/override/?utm_source=gatsby_landing" target="new"
+              className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-indigo-100 hover:bg-indigo-200 hover:border-solid focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              EXO x Auto Genius Demo
+            </a>
+          </div>
+        </div>
           </form>
           </>
         ) : (
             <>
-            
+            You're in the list.
             </>
         )}
 
-        {!submit && (<div className="mt-12">
-             <p>or <a href="https://discordapp.com/users/Touchless#5582" target="new">DM Touchless in the Gatsby Discord server</a>.</p>
-        </div>)}
-       
-        <div className="mt-24">
+        <div className="mt-48">
             <a href="https://excessive-sound-e73.notion.site/Terms-of-Use-24fff49972804d6fba6f8ff0d769c856" target="new">Privacy Policy</a> © 2022 Touchless Inc. 
         </div>
         </div>
