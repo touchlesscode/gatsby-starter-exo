@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import Confetti from 'react-dom-confetti';
-
+import { Helmet } from 'react-helmet';
     
 
 const IndexPage = ({ location }) => { 
@@ -36,16 +36,20 @@ const confettiConfig = {
   };
 
   return (
+    <>
+      <Helmet>
+        <title>EXO - The enterprise Gatsby theme.</title>
+      </Helmet>
     <div className="bg-white">
     <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
       <div className="text-center">
-        <h2 className="text-base text-indigo-400 mb-6 tracking-wide uppercase">Hi there, meet EXO.</h2>
+        <h2 className="text-base text-indigo-600 mb-6 tracking-wide uppercase">Hi there, meet EXO.</h2>
         <p className="mt-1 text-4xl font-bold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
         Make data-rich Gatsby sites, fast.
         </p>
 
         <Confetti className="ml-48 pl-48 mx-auto justify-center" active={confetti} config={ confettiConfig } />
-        <p className="max-w-xl mt-12 mb-12 mx-auto text-xl text-gray-400">
+        <p className="max-w-xl mt-12 mb-12 mx-auto text-xl text-gray-600">
           Secure your spot in the EXO beta. Receive a free API to sync your data, and get first-class support to configure EXO and share feedback as we launch the most scalable, extensible Gatsby theme for enteprise. 
          </p>
         <form method="post" className="mt-8 justify-center sm:flex" onSubmit={() => setSubmit(true)}>
@@ -83,7 +87,7 @@ const confettiConfig = {
         </div>
         </div>
     </div>
-  </div>
+  </div></>
   )
 }
 
