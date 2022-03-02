@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import Confetti from 'react-dom-confetti';
 
+    
+
 const IndexPage = ({ location }) => { 
 
 const [email, setEmail] = useState("");
@@ -9,18 +11,13 @@ const [domain, setDomain] = useState("");
 const [source, setSource] = useState("");
 const [confetti, setConfetti] = useState(false);
 
-const params = new URLSearchParams(location.search);
-const utm_source = params.get("utm_source");
-
-
 if (typeof window !== `undefined`) {
+
     if (localStorage.getItem('utm_source')) {
-        setSource(localStorage.getItem('utm_source'));
     }  else {
-        if (utm_source) {
-            localStorage.setItem('utm_source',utm_source)
-            if (source === "") setSource(utm_source);
-        }
+        const params = new URLSearchParams(location.search);
+        const utm_source = params.get("utm_source");
+        localStorage.setItem('utm_source',utm_source)
     }
 }
 
