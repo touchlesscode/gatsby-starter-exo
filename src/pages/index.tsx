@@ -2,18 +2,26 @@ import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import Confetti from 'react-dom-confetti';
 
-const IndexPage = () => {
+const IndexPage = ({ location }) => { 
 
 const [email, setEmail] = useState("");
 const [domain, setDomain] = useState("");
-const [submit, setSubmit] = useState(false);
-const [submitted, setSubmitted] = useState(false);
+const [source, setSource] = useState("");
 const [confetti, setConfetti] = useState(false);
 
+const params = new URLSearchParams(location.search);
+const utm_source = params.get("utm_source");
+
+
 if (typeof window !== `undefined`) {
-    if (localStorage.getItem('sent')) {
-        setSubmitted(true);
-    }  
+    if (localStorage.getItem('utm_source')) {
+        setSource(localStorage.getItem('utm_source'));
+    }  else {
+        if (utm_source) {
+            localStorage.setItem('utm_source',utm_source)
+            if (source === "") setSource(utm_source);
+        }
+    }
 }
 
 const confettiConfig = {
@@ -40,8 +48,7 @@ const confettiConfig = {
         </p>
 
         <Confetti className="ml-48 pl-48 mx-auto justify-center" active={confetti} config={ confettiConfig } />
-      {!submit ? (
-        <><p className="max-w-xl mt-12 mb-12 mx-auto text-xl text-gray-400">
+        <p className="max-w-xl mt-12 mb-12 mx-auto text-xl text-gray-400">
           Secure your spot in the EXO beta. Receive a free API to sync your data, and get first-class support to configure EXO and share feedback as we launch the most scalable, extensible Gatsby theme for enteprise. 
          </p>
         <form method="post" className="mt-8 justify-center sm:flex" onSubmit={() => setSubmit(true)}>
@@ -73,15 +80,9 @@ const confettiConfig = {
           </div>
         </div>
           </form>
-          </>
-        ) : (
-            <>
-            You're in the list.
-            </>
-        )}
 
         <div className="mt-32 text-indigo-900 text-sm">
-        Designed in Toronto. Made globally. MIT Licensed.<br/><br/><a href="https://excessive-sound-e73.notion.site/Terms-of-Use-24fff49972804d6fba6f8ff0d769c856" className="text-indigo-600" target="new">Privacy Policy</a> © 2022 Touchless Inc.
+        Designed in Toronto. Made globally. MIT Licensed.<br/><br/><a href="https://excessive-sound-e73.notion.site/Terms-of-Use-24fff49972804d6fba6f8ff0d769c856" className="text-indigo-600" target="new">Privacy Policy</a> © 2022 Touchless Inc. 
         </div>
         </div>
     </div>
