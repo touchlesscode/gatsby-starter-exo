@@ -50,7 +50,7 @@ const confettiConfig = {
 
         <Confetti className="ml-48 pl-48 mx-auto justify-center" active={confetti} config={ confettiConfig } />
         <p className="max-w-xl mt-12 mb-12 mx-auto text-xl text-gray-600">
-          Secure your spot in the EXO beta. Receive a free API to sync your data, and get first-class support to configure EXO and share feedback as we launch the most scalable, extensible Gatsby theme for enteprise. 
+          Secure your spot in the EXO beta. Receive a free API to sync your data, and get first-class support to configure EXO and share feedback as we launch the most scalable, extensible Gatsby theme for enterprise. 
          </p>
         <form method="post" className="mt-8 justify-center sm:flex" onSubmit={() => setSubmit(true)}>
          <div className="mb-4 sm:mb-0 sm:mr-8">
