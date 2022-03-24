@@ -10,27 +10,25 @@ const Widget = () => {
         setHasMounted(true);
     }, []);
     
-    if (hasMounted) {
-
-        const { state, setHeader, setSize } = useTextKitWidget();
+    const { state, setHeader, setSize } = hasMounted && useTextKitWidget();
             
-        const [headerReplaced, setHeaderReplaced] = useState<boolean>(false);
+    const [headerReplaced, setHeaderReplaced] = useState<boolean>(false);
 
-        const swapHeader = () => {
-            if (headerReplaced) {
-                setHeader('Your Standard Widget');
-                setHeaderReplaced(false);
-            } else {
-                setHeader('My New Header');
-                setHeaderReplaced(true);
-            }
+    const swapHeader = () => {
+        if (headerReplaced) {
+            setHeader('Your Standard Widget');
+            setHeaderReplaced(false);
+        } else {
+            setHeader('My New Header');
+            setHeaderReplaced(true);
         }
+    }
 
-        const closeWidget = () => {
-            setSize(WidgetViewSize.Medium);
-        }
+    const closeWidget = () => {
+        setSize(WidgetViewSize.Medium);
+    }
 
-        return (
+    return (
             <Fragment>
                 <MediumContent>
                     <div className='widget-container'>
@@ -69,9 +67,6 @@ const Widget = () => {
                 </LargeContent>
             </Fragment>
         )
-    } else {
-        return null;
-    }
 }
 
 export default Widget;
