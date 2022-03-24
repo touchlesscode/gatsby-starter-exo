@@ -6,7 +6,7 @@ import Widget from '../../../../components/widgets/Action';
 const SampleWidget = () => {
      
     return (
-        <TextKitWidgetProvider header='Add a Lead' label='Add a new lead'>
+        <TextKitWidgetProvider header='Add a Lead' >
             <Widget />
         </TextKitWidgetProvider>
     );
