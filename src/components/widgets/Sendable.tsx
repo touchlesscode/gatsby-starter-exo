@@ -1,11 +1,17 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import './Widget.css';
 import icon from './sendable.svg';
 
 import { useTextKitWidget } from '@statflo/textkit-widget-sdk-react'
 
 const Widget = () => {
-    const { state, setOpen, appendMessage, replaceMessage } = useTextKitWidget() | {};
+    const [hasMounted, setHasMounted] = useState(false);
+    
+    useEffect(() => {
+        setHasMounted(true);
+    }, []);
+    
+    const { state, setOpen, appendMessage, replaceMessage } = hasMounted && useTextKitWidget();
 
     const handleReplace = () => {
         replaceMessage('This will replace the message content.');
