@@ -10,9 +10,7 @@ const Widget = () => {
         setHasMounted(true);
     }, []);
     
-    if (!hasMounted) {
-        return null;
-    } else {
+    if (hasMounted) {
 
         const { state, setHeader, setSize } = useTextKitWidget();
             
@@ -71,6 +69,8 @@ const Widget = () => {
                 </LargeContent>
             </Fragment>
         )
+    } else {
+        return null;
     }
 }
 
