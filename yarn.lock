@@ -7219,10 +7219,10 @@ gatsby-telemetry@^3.9.0:
     lodash "^4.17.21"
     node-fetch "^2.6.7"
 
-gatsby-theme-exo@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/gatsby-theme-exo/-/gatsby-theme-exo-0.2.0.tgz#b078ccf5ebb091c195ad3467d75e84659ac68421"
-  integrity sha512-o0hz0L7FimjOIsAwtR98IvB/gvdA/XncY11wArynnEwXIpgFHOV//wPVFC88HNzg32Rc6cMsvZ+EQJSF1BwkBg==
+gatsby-theme-exo@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/gatsby-theme-exo/-/gatsby-theme-exo-0.2.1.tgz#1934eddb002b5a59b1bef76c140d2977582b92f9"
+  integrity sha512-AIorYhq21Cz+WTO63bipEauhzhH+bCgvDbOXlzdE4zwiXlCngoy5J8DrSOp8OJnW2PCDhWQ/xQQ/I29D4VudWQ==
   dependencies:
     "@apollo/client" "^3.4.15"
     "@emotion/styled" "^11.6.0"
