@@ -27,6 +27,12 @@ module.exports = {
     resolve: `gatsby-theme-exo`,
   },
   'gatsby-plugin-theme-ui',
+  {
+    resolve: 'gatsby-plugin-gatsby-cloud',
+    options: {
+      mergeSecurityHeaders: false,
+    }
+  },
   /*{
     resolve: `gatsby-plugin-rudderstack`,
     options: {
