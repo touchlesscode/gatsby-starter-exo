@@ -3,13 +3,7 @@ module.exports = {
     siteUrl: `https://www.exo.new`
   },
   plugins: [
-  {
-    resolve: 'gatsby-source-sanity',
-    options: {
-      "projectId": "ju3h49o8",
-      "dataset": "production"
-    }
-  }, 
+
   "gatsby-plugin-postcss", 
   "gatsby-plugin-image", 
   "gatsby-plugin-react-helmet", 
