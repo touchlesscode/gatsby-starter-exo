@@ -7,7 +7,7 @@ import Widget from '../../../../components/widgets/Timeline';
 const SampleWidget = () => {
      
     return (
-        <TextKitWidgetProvider header='Standard Widget' footer='Show More'>
+        <TextKitWidgetProvider header='Timeline Widget' label='Your timeline'>
             <Widget />
         </TextKitWidgetProvider>
     );

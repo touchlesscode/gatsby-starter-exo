@@ -6,7 +6,7 @@ import Widget from '../../../../components/widgets/Sendable';
 const SampleWidget = () => {
      
     return (
-        <TextKitWidgetProvider header='Sendable Widget' label='Your sendable label'>
+        <TextKitWidgetProvider header='Sendable Widget' label='Send a suggestion'>
             <Widget />
         </TextKitWidgetProvider>
     );
