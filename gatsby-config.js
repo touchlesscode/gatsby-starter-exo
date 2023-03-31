@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.exo.new`
+    siteUrl: `https://www.mydomain.com`,
   },
   plugins: [
   {
@@ -12,7 +12,6 @@ module.exports = {
   }, 
   "gatsby-plugin-postcss", 
   "gatsby-plugin-image", 
-  "gatsby-plugin-react-helmet", 
   {
     resolve: 'gatsby-plugin-manifest',
     options: {
@@ -29,10 +28,6 @@ module.exports = {
     },
     __key: "images"
   },
-  {
-    resolve: `gatsby-theme-exo`,
-  },
-  'gatsby-plugin-theme-ui',
   /*{
     resolve: `gatsby-plugin-rudderstack`,
     options: {
