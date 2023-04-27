@@ -4,3 +4,5 @@ public
 .env
 .env.development
 .env.production
+node_modules/
+.yarn/

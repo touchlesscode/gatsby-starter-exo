@@ -1,0 +1,13 @@
+[{
+    "id": "US",
+    "isDefault": true, 
+    "currencyCode": "USD",
+    "currencySymbol": "$",
+    "label": "United States",
+    "shortLabel": "US",
+    "flag": "us",
+    "defaultLocale": "en",
+    "supportedLocales": [
+        "en-US"
+    ]
+}]

@@ -6,16 +6,6 @@ const IndexPage = ({ location }) => {
 
 const [confetti, setConfetti] = useState(false);
 
-if (typeof window !== `undefined`) {
-
-    if (localStorage.getItem('utm_source')) {
-    }  else {
-        const params = new URLSearchParams(location.search);
-        const utm_source = params.get("utm_source");
-        localStorage.setItem('utm_source',utm_source)
-    }
-}
-
 const confettiConfig = {
     angle: "90",
     spread: 800,
