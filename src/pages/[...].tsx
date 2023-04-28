@@ -36,7 +36,8 @@ export async function getServerData(
   props: GetServerDataProps,
 ): GetServerDataReturn<ServerDataProps> {
   try {
-    const res = await fetch(`http://localhost:9000/api/sanity/data?slug=${props.params["*"]}}`)
+    //http://localhost:9000/api/sanity/data?slug=about
+    const res = await fetch(`/api/sanity/data?slug=${props.params["*"]}}`)
     if (!res.ok) {
       throw new Error("Something went wrong")
     }
