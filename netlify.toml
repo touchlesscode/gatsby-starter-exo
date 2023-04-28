@@ -1,0 +1,6 @@
+[template]
+  incoming-hooks = ["Sanity"]
+
+[template.environment]
+  GATSBY_PUBLIC_SANITY_PROJECT_ID="Your Sanity Project Id"
+  GATSBY_PUBLIC_SANITY_PROJECT_ID="Your Sanity Dataset"
