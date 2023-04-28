@@ -5,7 +5,6 @@ import { getPreviewSecret } from '../../../../sanity/lib/previewSecret'
 // Types
 
 import type { NextApiRequest, NextApiResponse } from 'next'
-import type { CookieSerializeOptions } from 'next/dist/compiled/cookie'
 
 // Initialize
 export const COOKIE_NAME_PRERENDER_BYPASS = `__prerender_bypass`
@@ -52,8 +51,7 @@ export default async function preview(
   }
 
   if (slug) {
-    res.setHeader('Referer', storedSecret)
-    res.writeHead(307, { Location: `/${slug}?token` })
+    res.writeHead(307, { Location: `http://localhost:9000${slug}?token=${readToken}` })
     res.end()
     return
   }

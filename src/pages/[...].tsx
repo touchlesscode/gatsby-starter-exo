@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from "react"
-import { Link } from "gatsby"
+import type { HeadFC, GetServerDataProps, GetServerDataReturn } from 'gatsby';
+import { SEO } from "../components/SEO"
+ 
+type ServerDataProps = {
+  hello: string;
+};
 
-const IndexPage = ({ location }) => { 
-
-  useEffect(() => {
-    if (typeof window !== `undefined`) {
-      if (localStorage.getItem('utm_source')) {
-      }  else {
-          const params = new URLSearchParams(location.search);
-          const utm_source = params.get("utm_source");
-      }
-    }
-  }, []);
-
+export default function SSRPage({ serverData }) {
+  if (serverData) console.log(serverData)
   return (
     <>
     <div className="bg-white">
@@ -20,7 +15,7 @@ const IndexPage = ({ location }) => {
       <div className="text-center">
         <h2 className="text-base text-indigo-600 mb-6 tracking-wide uppercase">Title</h2>
         <p className="mt-1 text-4xl font-bold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-        Some headline
+        {JSON.stringify(serverData)}
         </p>
 
          
@@ -34,4 +29,26 @@ const IndexPage = ({ location }) => {
   )
 }
 
-export default IndexPage
+export async function getServerData(
+  props: GetServerDataProps,
+): GetServerDataReturn<ServerDataProps> {
+  try {
+    const res = await fetch(`http://localhost:9000/api/sanity/data?slug=${props.params["*"]}}`)
+    if (!res.ok) {
+      throw new Error("Something went wrong")
+    }
+    return {
+      props: await res.json(),
+    }
+  } catch (error) {
+    return {
+      status: 500,
+      headers: {},
+      props: {},
+    }
+  }
+}
+
+export const Head:HeadFC = ({data}: any) => (
+  <SEO title={data.page?.seoTitle || ""} description={data.page?.seoDescription || ""} />
+)

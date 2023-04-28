@@ -1,4 +1,16 @@
 module.exports = {
+  trailingSlash: 'ignore',
+  jsxRuntime: "automatic",
+  graphqlTypegen: {
+    typesOutputPath: `gatsby-types.d.ts`,
+  },
+  flags: {
+    DEV_SSR: false,
+    FAST_DEV: true,
+    PARTIAL_HYDRATION: false,
+    PARALLEL_SOURCING: false,
+    DETECT_NODE_MUTATIONS: false,
+  },
   siteMetadata: {
     siteUrl: `https://www.mydomain.com`,
   },
