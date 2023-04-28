@@ -11,6 +11,8 @@ export default async function corsHandler(req, res) {
       resolve(result)
     })
   })
+  
+  // Temporary for debugging
   res.json({query: `Sample Data`})
   res.end()
   return

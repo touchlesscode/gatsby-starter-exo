@@ -8,6 +8,9 @@ type ServerDataProps = {
 
 export default function SSRPage({ serverData }) {
   if (serverData) console.log(serverData)
+  
+  // Note, this struggles to work well in develop mode. Invesigating. 
+  
   return (
     <>
     <div className="bg-white">

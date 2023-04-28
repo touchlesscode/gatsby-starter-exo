@@ -6,7 +6,7 @@ module.exports = {
   },
   flags: {
     DEV_SSR: false,
-    FAST_DEV: true,
+    FAST_DEV: false,
     PARTIAL_HYDRATION: false,
     PARALLEL_SOURCING: false,
     DETECT_NODE_MUTATIONS: false,
