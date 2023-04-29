@@ -6,8 +6,10 @@ type ServerDataProps = {
   hello: string;
 };
 
-export default function SSRPage({ serverData }) {
+export default function SSRPage({ props, serverData }) {
   if (serverData) console.log(serverData)
+  const { posts } = serverData;
+  const title = posts[0].title.en;
   
   // Note, this struggles to work well in develop mode. Invesigating. 
   
@@ -18,7 +20,8 @@ export default function SSRPage({ serverData }) {
       <div className="text-center">
         <h2 className="text-base text-indigo-600 mb-6 tracking-wide uppercase">Title</h2>
         <p className="mt-1 text-4xl font-bold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-        {JSON.stringify(serverData)}
+        {title}
+        {JSON.stringify(props)}
         </p>
 
          
@@ -35,9 +38,11 @@ export default function SSRPage({ serverData }) {
 export async function getServerData(
   props: GetServerDataProps,
 ): GetServerDataReturn<ServerDataProps> {
+  const isDev = process.env.NODE_ENV === "development" ? true : false;
+  const url = isDev ? 'http://localhost:8000' : 'http://localhost:9000';
+  console.log(props)
   try {
-    //http://localhost:9000/api/sanity/data?slug=about
-    const res = await fetch(`/api/sanity/data?slug=${props.params["*"]}}`)
+    const res = await fetch(`${url}/api/sanity/data?slug=${props.params["*"]}}`)
     if (!res.ok) {
       throw new Error("Something went wrong")
     }

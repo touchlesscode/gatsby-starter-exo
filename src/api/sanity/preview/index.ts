@@ -51,7 +51,7 @@ export default async function preview(
   }
 
   if (slug) {
-    res.writeHead(307, { Location: `http://localhost:9000${slug}?token=${readToken}` })
+    res.writeHead(307, { Location: `${slug}?token=${readToken}` })
     res.end()
     return
   }
