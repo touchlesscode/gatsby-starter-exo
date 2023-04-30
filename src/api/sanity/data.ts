@@ -27,7 +27,8 @@ export default async function corsHandler(req, res) {
     const posts = await Client.fetch('*[_id == "9f5785f0-d633-4879-8a28-bc6c6e6a5f54"]')
     return posts
   }
-  const posts = await getDraftPost()
+  const draftPosts = await getDraftPost();
+  const posts = draftPosts && draftPosts.length ? draftPosts : await getPost()
 
   // Temporary for debugging
   res.json({query: query, posts: posts})

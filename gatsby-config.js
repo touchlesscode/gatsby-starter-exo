@@ -40,6 +40,22 @@ module.exports = {
     },
     __key: "images"
   },
+  {
+    resolve: `gatsby-plugin-alias-imports`,
+    options: {
+      alias: {
+        "@src": "src",
+        "@components": "src/components",
+        "@libs": "src/libs",
+        "@pages": "src/pages",
+        "@hooks": "src/hooks",
+        "@templates": "src/templates",
+      },
+      extensions: [
+        "js",
+      ],
+    }
+  },
   /*{
     resolve: `gatsby-plugin-rudderstack`,
     options: {

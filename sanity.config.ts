@@ -7,9 +7,9 @@ import { mediaAssetSource } from "sanity-plugin-media";
 
 import { defineConfig } from 'sanity'
 import { deskTool } from 'sanity/desk'
-import { defaultDocumentNode, structure } from './sanity/structure'
-import { apiVersion, dataset, projectId, readToken } from './sanity/env'
-import { schema } from './sanity/schema'
+import { defaultDocumentNode, structure } from './libs/sanity-studio/structure'
+import { apiVersion, dataset, projectId, readToken } from './libs/sanity-studio/env'
+import { schema } from './libs/sanity-studio/schema'
 
 
 export default defineConfig({

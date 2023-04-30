@@ -1,6 +1,6 @@
-import { previewSecretDocumentId } from '../../../../sanity/env'
+import { previewSecretDocumentId } from '../../../../libs/sanity-studio/env'
 import { client } from './client'
-import { getPreviewSecret } from '../../../../sanity/lib/previewSecret'
+import { getPreviewSecret } from '../../../../libs/sanity-studio/lib/previewSecret'
 
 // Types
 
