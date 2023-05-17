@@ -30,7 +30,7 @@ module.exports = {
       "icon": "src/images/icons/icon.png"
     }
   }, 
-  "gatsby-plugin-sharp", 
+  "gatsby-plugin-webpack-bundle-analyser-v2", 
   "gatsby-transformer-sharp", 
   {
     resolve: 'gatsby-source-filesystem',
